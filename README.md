@@ -121,13 +121,15 @@ Upload all data files to Data/Azure DataLake Storage Gen2 ??????
 
 ## Task 6: TRANSFORM the data to the star schema
 
-We will write SQL scripts to transform the data from the staging tables to the final star schema you designed.
+We will write SQL scripts to transform the data from the staging tables to the final star schema we designed.
 
-
-## Create Tables
+CAUTION : always make sure you are connected to the right database **bikesharesqlpool** !!
 
 1. Go to the Develop section and create a script
 <img src="/pictures/create-table.png" title="create table"  width="700">
 
-1. Run script create_tables.sql
-<img src="/pictures/create-table-script.png" title="create table script"  width="700">
+2. Run all scripts in *starTables.sql* in order to create the star tables
+<img src="/pictures/create-star-table-script.png" title="create table script"  width="700">
+
+3. At the end of the process, you should see your star model tables created and populated in the 
+<img src="/pictures/star_tables.png" title="star tables"  width="300">
