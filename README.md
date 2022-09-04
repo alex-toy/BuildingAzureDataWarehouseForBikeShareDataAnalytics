@@ -34,9 +34,13 @@ The business outcomes we are designing for are as follows:
 <img src="/pictures/synapse-workspace1.png" title="synapse workspace"  width="500">
 <img src="/pictures/synapse-workspace2.png" title="synapse workspace"  width="500">
 
-2. Create a **Dedicated SQL pools**. Choose *SQL Authentication* when creating the server. Don't forget to set the performance level, which is the basis for the cost.
+2. Create a **Dedicated SQL pools** inside the **Synapse Workspace**.
 
 Warning : that resource needs to be created *data/SQL pool* section of the workspace.
+<img src="/pictures/sql-pool-section.png" title="dedicated sql pool"  width="700">
+
+Choose *SQL Authentication* when creating the server. Don't forget to set the performance level, which is the basis for the cost.
+
 <img src="/pictures/sql-pool.png" title="dedicated sql pool"  width="700">
 
 3. Create an **Azure Storage Account**
@@ -77,7 +81,7 @@ In your Azure Synapse workspace, we will use the ingest wizard to create a one-t
 <img src="/pictures/linked-service-blob.png" title="linked services blob storage"  width="300">
 <img src="/pictures/linked-service-blob-config.png" title="linked services blob storage config"  width="300">
 
-4. in order to ingesti data into **Blob Storage**,  Go to the **Home/Ingest** section and select **Built-in copy task** and **Run once now**.
+4. in order to ingest data into **Blob Storage**,  Go to the **Home/Ingest** section and select **Built-in copy task** and **Run once now**.
 <img src="/pictures/home-ingest.png" title="ingest"  width="700">
 
 5. Then select **Azure Database for PostgreSQL** as a source and choose all the relevant tables.
