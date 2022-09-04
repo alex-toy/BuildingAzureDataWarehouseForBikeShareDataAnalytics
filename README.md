@@ -99,15 +99,19 @@ In the data section, you will find your newly created link :
 
 Once in Blob storage, the files will be shown in the data lake node in the Synapse Workspace. From here, we can use the script generating function to load the data from blob storage into external staging tables in the data warehouse we created using the Dedicated SQL Pool.
 
-Upload us-accidents.csv to Data/Azure DataLake Storage Gen2 ??????
+Upload all data files to Data/Azure DataLake Storage Gen2 ??????
 
-1. Create external table
+1. Create external table for all the staging tables.
 <img src="/pictures/create-external-table.png" title="create external table"  width="700">
+<img src="/pictures/create-external-table-config.png" title="create external table"  width="700">
 
-2. Then run the script to create a **staging table**. You should first give meaning names to the columns. Note that DATETIME type is not well understood by Azure and you should turn them to VARCHAR(20).
+2. Then run the script to create a **staging table** for all staging tables.
+- You should first give meaning names to the columns. 
+- Note that DATETIME type is not well understood by Azure and you should turn them to VARCHAR(50).
+- make sure you are on **bikesharesqlpool** and not the **master** database.
 <img src="/pictures/external-table-script.png" title="external table script"  width="700">
 
-3. You should now see an external table created in the *Data/Workspace* section :
+3. You should now see the external tables created in the *Data/Workspace* section :
 <img src="/pictures/newly-created-table.png" title="newly created table"  width="300">
 
 3. You should now be able to run any query on the newly created table :
