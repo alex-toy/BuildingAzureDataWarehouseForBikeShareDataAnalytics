@@ -9,7 +9,7 @@ CREATE TABLE fact_payment (
 	[payment_id] [bigint]  NULL,
 	[amount] [float]  NULL,
 	[rider_id] [bigint]  NULL,
-	[time_id] [bigint]  NULL
+	[time_id] [uniqueidentifier]  NULL
 )
 GO;
 
@@ -23,7 +23,7 @@ SELECT
     [staging_payments].[amount],
     [staging_payments].[rider_id],
     [dim_time].[time_id]
-FROM staging_payments
+FROM [dbo].[staging_payments]
 JOIN dim_time ON dim_time._date = staging_payments._date
 
 GO;

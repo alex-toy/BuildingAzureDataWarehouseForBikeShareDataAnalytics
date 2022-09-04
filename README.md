@@ -36,12 +36,12 @@ The business outcomes we are designing for are as follows:
 
 2. Create a **Dedicated SQL pools** inside the **Synapse Workspace**.
 
-Warning : that resource needs to be created *data/SQL pool* section of the workspace.
+Warning : that resource needs to be created *Monitor/SQL pool* section of the workspace.
 <img src="/pictures/sql-pool-section.png" title="dedicated sql pool"  width="700">
 
 Choose *SQL Authentication* when creating the server. Don't forget to set the performance level, which is the basis for the cost.
 
-<img src="/pictures/sql-pool.png" title="dedicated sql pool"  width="700">
+<img src="/pictures/sql-pool.png" title="dedicated sql pool"  width="400">
 
 3. Create an **Azure Storage Account**
 <img src="/pictures/storage-account.png" title="storage account"  width="700">
@@ -85,13 +85,16 @@ In your Azure Synapse workspace, we will use the ingest wizard to create a one-t
 <img src="/pictures/home-ingest.png" title="ingest"  width="700">
 
 5. Then select **Azure Database for PostgreSQL** as a source and choose all the relevant tables.
-<img src="/pictures/postgres-source.png" title="postgres source"  width="700">
+<img src="/pictures/postgres-source.png" title="postgres source"  width="400">
 
 6. Then add a destination link to **Azure Blob Storage** as a source
-<img src="/pictures/link-destination.png" title="link destination"  width="700">
+<img src="/pictures/link-destination1.png" title="link destination"  width="400">
 
 In the data section, you will find your newly created link :
 <img src="/pictures/newly-created-link.png" title="newly created link"  width="700">
+
+In the storage account, you should see the four datasets copied in from postgres :
+<img src="/pictures/storage_account_data.png" title="storage account data"  width="700">
 
 
 
@@ -102,20 +105,31 @@ Once in Blob storage, the files will be shown in the data lake node in the Synap
 Upload all data files to Data/Azure DataLake Storage Gen2 ??????
 
 1. Create external table for all the staging tables.
-<img src="/pictures/create-external-table.png" title="create external table"  width="700">
-<img src="/pictures/create-external-table-config.png" title="create external table"  width="700">
+<img src="/pictures/create-external-table.png" title="create external table"  width="600">
+<img src="/pictures/create-external-table-config.png" title="create external table"  width="400">
 
 2. Then run the script to create a **staging table** for all staging tables.
-- You should first give meaning names to the columns. 
-- Note that DATETIME type is not well understood by Azure and you should turn them to VARCHAR(50).
-- make sure you are on **bikesharesqlpool** and not the **master** database.
-<img src="/pictures/external-table-script.png" title="external table script"  width="700">
+    - You should first give meaning names to the columns. 
+    - Note that DATETIME type is not well understood by Azure and you should turn them to VARCHAR(50).
+    - make sure you are on **bikesharesqlpool** and not the **master** database.
+
+- External table **staging_payments**
+<img src="/pictures/external-table-staging_payments.png" title="external table staging_payments" width="400">
+
+- External table **staging_trips**
+<img src="/pictures/external-table-staging_trips.png" title="external table staging_trips" width="400">
+
+- External table **staging_riders**
+<img src="/pictures/external-table-staging_riders.png" title="external table staging_riders" width="400">
+
+- External table **staging_stations**
+<img src="/pictures/external-table-staging_stations.png" title="external table staging_stations"  width="400">
 
 3. You should now see the external tables created in the *Data/Workspace* section :
 <img src="/pictures/newly-created-table.png" title="newly created table"  width="300">
 
 3. You should now be able to run any query on the newly created table :
-<img src="/pictures/external-table-query.png" title="external table query"  width="700">
+<img src="/pictures/external-table-query.png" title="external table query"  width="600">
 
 
 
@@ -128,8 +142,14 @@ CAUTION : always make sure you are connected to the right database **bikesharesq
 1. Go to the Develop section and create a script
 <img src="/pictures/create-table.png" title="create table"  width="700">
 
-2. Run all scripts in *starTables.sql* in order to create the star tables
+2. Run all scripts in folder *starTables* in order to create the star tables
 <img src="/pictures/create-star-table-script.png" title="create table script"  width="700">
 
 3. At the end of the process, you should see your star model tables created and populated in the 
 <img src="/pictures/star_tables.png" title="star tables"  width="300">
+
+
+
+## Task 7: Give answers to business questions
+
+You only have to run the queries in the business.sql script in order to give answers to the questions above.
