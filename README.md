@@ -75,11 +75,12 @@ In your Azure Synapse workspace, we will use the ingest wizard to create a one-t
 
 3. Create an **Azure Blob storage** linked service
 <img src="/pictures/linked-service-blob.png" title="linked services blob storage"  width="300">
+<img src="/pictures/linked-service-blob-config.png" title="linked services blob storage config"  width="300">
 
-4. in order to create a **Linked Service** Go to the **Home/Ingest** section and select **Built-in copy task** and **Run once now**.
+4. in order to ingesti data into **Blob Storage**,  Go to the **Home/Ingest** section and select **Built-in copy task** and **Run once now**.
 <img src="/pictures/home-ingest.png" title="ingest"  width="700">
 
-5. Then select **Azure Database for PostgreSQL** as a source and choose the *accident* table.
+5. Then select **Azure Database for PostgreSQL** as a source and choose all the relevant tables.
 <img src="/pictures/postgres-source.png" title="postgres source"  width="700">
 
 6. Then add a destination link to **Azure Blob Storage** as a source
