@@ -8,19 +8,18 @@ credentials = {
     "host" : "bikesharepostgresserver.postgres.database.azure.com", 
     "user" : "postgresadmin", 
     "password" : "Alexei.80", 
-    "dbname" : "<<dbname>>"
+    "dbname" : "postgres"
 }
 ############################################################################
 
 
 ############################################################################
 # Create a new DB
-credentials.dbname = "postgres"
 conn, cursor = get_connection(credentials, ISOLATION_LEVEL_AUTOCOMMIT)
 
-credentials.dbname = "bikeshare"
-cursor.execute(f'DROP DATABASE IF EXISTS {credentials.dbname}')
-cursor.execute(f"CREATE DATABASE {credentials.dbname}")
+credentials['dbname'] = "bikeshare"
+cursor.execute(f"DROP DATABASE IF EXISTS {credentials['dbname']}")
+cursor.execute(f"CREATE DATABASE {credentials['dbname']}")
 close_connection(conn, cursor)
 ############################################################################
 

@@ -39,6 +39,9 @@ The business outcomes we are designing for are as follows:
 Warning : that resource needs to be created *data/SQL pool* section of the workspace.
 <img src="/pictures/sql-pool.png" title="dedicated sql pool"  width="700">
 
+3. Create an **Azure Storage Account**
+<img src="/pictures/storage-account.png" title="storage account"  width="700">
+
 
 
 ## Task 2: Design a star schema
@@ -68,6 +71,7 @@ In your Azure Synapse workspace, we will use the ingest wizard to create a one-t
 
 2. Create an **Azure Database for PostgreSQL** linked service. For **Encryption**, choose **Request SSL**.
 <img src="/pictures/linked-service-postgres.png" title="linked services postgres"  width="300">
+<img src="/pictures/linked-service-postgres-config.png" title="linked services postgres config"  width="300">
 
 3. Create an **Azure Blob storage** linked service
 <img src="/pictures/linked-service-blob.png" title="linked services blob storage"  width="300">

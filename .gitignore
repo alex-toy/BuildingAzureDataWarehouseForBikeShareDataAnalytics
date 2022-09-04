@@ -1,2 +1,4 @@
 /data/trips.csv
 /star_model.mdj
+.venv
+*.pyc

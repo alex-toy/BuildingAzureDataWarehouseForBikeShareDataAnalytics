@@ -5,8 +5,9 @@ from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
 def get_connection(credentials, isolation_level=None) :
     sslmode = "require"
-    conn_string = f"host={credentials.host} user={credentials.user} dbname={credentials.dbname} password={credentials.password} sslmode={sslmode}"
+    conn_string = f"host={credentials['host']} user={credentials['user']} dbname={credentials['dbname']} password={credentials['password']} sslmode={sslmode}"
     conn = psycopg2.connect(conn_string)
+    conn.autocommit = True
     if isolation_level : conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT);
     print("Connection established")
     cursor = conn.cursor()
@@ -34,4 +35,4 @@ def populate_table(conn, cursor, filename, tablename):
         print("Error: %s" % error)
         conn.rollback()
         cursor.close()
-    print("Finished populating {0}".format(tablename))
+    print(f"Finished populating {tablename}")

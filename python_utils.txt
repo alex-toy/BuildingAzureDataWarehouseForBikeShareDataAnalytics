@@ -1,0 +1,9 @@
+cd /path/to/app
+python3 -m venv .venv
+
+source venv/bin/activate #mac
+.\.venv\Scripts\activate #windows
+.\venv\Scripts\deactivate #windows
+
+pip install --upgrade pip 
+pip install -r requirements.txt
